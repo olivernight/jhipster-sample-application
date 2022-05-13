@@ -1,9 +1,6 @@
-# jhipsterSampleApplication
+# myApp
 
 This application was generated using JHipster 7.8.1, you can find documentation and help at [https://www.jhipster.tech](https://www.jhipster.tech).
-
-This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
-This application is configured for Service Discovery and Configuration with the JHipster-Registry. On launch, it will refuse to start if it is not able to connect to the JHipster-Registry at [http://localhost:8761](http://localhost:8761). For more information, read our documentation on [Service Discovery and Configuration with the JHipster-Registry][].
 
 ## Project Structure
 
@@ -38,13 +35,6 @@ npm install
 ```
 
 We use npm scripts and [Angular CLI][] with [Webpack][] as our build system.
-
-If you are using hazelcast as a cache, you will have to launch a cache server.
-To start your cache server, run:
-
-```
-docker-compose -f src/main/docker/hazelcast-management-center.yml up -d
-```
 
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
@@ -101,37 +91,6 @@ Note: There are still a few other things remaining to do for Leaflet that we won
 
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
-### Developing Microfrontend
-
-Microservices doesn't contain every required backend feature to allow microfrontends to run alone.
-You must start a pre-built gateway version or from source.
-
-Start gateway from source:
-
-```
-cd gateway
-npm run docker:db:up # start database if necessary
-npm run docker:others:up # start service discovery and authentication service if necessary
-npm run app:start # alias for ./(mvnw|gradlew)
-```
-
-Microfrontend's `build-watch` script is configured to watch and compile microfrontend's sources and synchronizes with gateway's frontend.
-Start it using:
-
-```
-cd microfrontend
-npm run docker:db:up # start database if necessary
-npm run build-watch
-```
-
-It's possible to run microfrontend's frontend standalone using:
-
-```
-cd microfrontend
-npm run docker:db:up # start database if necessary
-npm watch # alias for `npm start` and `npm run backend:start` in parallel
-```
-
 ### Using Angular CLI
 
 You can also use [Angular CLI][] to generate some custom client code.
@@ -158,25 +117,11 @@ JHipster Control Center can help you manage and control your application(s). You
 docker-compose -f src/main/docker/jhipster-control-center.yml up
 ```
 
-### Doing API-First development using openapi-generator
-
-[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
-
-```bash
-./mvnw generate-sources
-```
-
-Then implements the generated delegate classes with `@Service` classes.
-
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
-
-Refer to [Doing API-First development][] for more details.
-
 ## Building for production
 
 ### Packaging as jar
 
-To build the final jar and optimize the jhipsterSampleApplication application for production, run:
+To build the final jar and optimize the myApp application for production, run:
 
 ```
 ./mvnw -Pprod clean verify
@@ -189,7 +134,7 @@ To ensure everything worked, run:
 java -jar target/*.jar
 ```
 
-Then navigate to [http://localhost:8081](http://localhost:8081) in your browser.
+Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
 Refer to [Using JHipster in production][] for more details.
 
@@ -216,12 +161,6 @@ Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/te
 ```
 npm test
 ```
-
-### Other tests
-
-Performance tests are run by [Gatling][] and written in Scala. They're located in [src/test/gatling](src/test/gatling).
-
-To use those tests, you must install Gatling from [https://gatling.io/](https://gatling.io/).
 
 For more information, refer to the [Running tests page][].
 
@@ -288,9 +227,7 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
 [jhipster 7.8.1 archive]: https://www.jhipster.tech
-[doing microservices with jhipster]: https://www.jhipster.tech/microservices-architecture/
 [using jhipster in development]: https://www.jhipster.tech/development/
-[service discovery and configuration with the jhipster-registry]: https://www.jhipster.tech/microservices-architecture/#jhipster-registry
 [using docker and docker-compose]: https://www.jhipster.tech/docker-compose
 [using jhipster in production]: https://www.jhipster.tech/production/
 [running tests page]: https://www.jhipster.tech/running-tests/
@@ -304,7 +241,3 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
 [angular cli]: https://cli.angular.io/
-[gatling]: https://gatling.io/
-[openapi-generator]: https://openapi-generator.tech
-[swagger-editor]: https://editor.swagger.io
-[doing api-first development]: https://www.jhipster.tech/doing-api-first-development/
